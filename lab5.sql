@@ -170,7 +170,7 @@ from pudelka p natural join zawartosc z join czekoladki c using (idczekoladki)
 group by idpudelka) zyskPudelko
 group by idpudelka) wyprzedaz;
 
---5.8 liczy ile jest przed nim recordow + on sam i to jest jego numer   mozna tak bo id jest char
+--5.8 liczy ile jest przed nim recordow + on sam i to jest jego numer
 select (select count(*) from pudelka p2 where p1.idpudelka >= p2.idpudelka) as nr, p1.idpudelka
 from pudelka p1
 order by p1.idpudelka;
