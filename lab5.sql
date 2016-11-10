@@ -11,7 +11,7 @@ group by idpudelka
 order by 2 desc
 limit 1;
 --4
-select idpudelka, sum(sztuk) as "Suma czeko."
+select idpudelka, sum(sztuk) as "Suma czeko"
 from zawartosc
 group by idpudelka;
 --5
