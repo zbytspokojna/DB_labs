@@ -36,7 +36,7 @@ from zawartosc z natural join czekoladki c
 group by z.idpudelka
 order by 2 desc
 limit 1;
---or without name of package // update with package name
+--or
 select pudelka.idpudelka, pudelka.masa
 from (select idpudelka, sum(z.sztuk * c.masa) masa
   from zawartosc z natural join czekoladki c
