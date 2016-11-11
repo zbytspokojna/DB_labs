@@ -100,7 +100,7 @@ where (masa between 25 and 35) and (koszt not between 0.15 and 0.24) and (koszt 
 --\a format unaligned\aligned
 --\f '*' field separator *-anything you want
 --\H format html\aligned
---\o [file.format] przekierowanie do pliku
+--\o [file.format] redirect to file
 
 --2.8
 --1 In script \o [file.txt] and select. To use script -> psql <file.sql> <- in it's directory
