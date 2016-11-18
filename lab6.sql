@@ -77,7 +77,7 @@ End with a backslash and a period on a line by itself.
 >> game|w06|3
 >> \.
 
---6.7
+--6.8
 --1
 update zawartosc set sztuk = sztuk + 1
 where idpudelka in ('evio','nieb','nice','game');
