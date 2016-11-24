@@ -8,7 +8,7 @@ insert into klienci values
 ('92','Kimono Franek','Karateków 8','Mistrz','30-029','501 498 324');
 --3
 insert into klienci values
-('93','Matusiak Iza',(select ulica from klienci where nazwa = 'Matusiak Edward'),(select miejscowosc from klienci where nazwa = 'Matusiak Edward'),(select kod from klienci where nazwa = 'Matusiak Edward'),(select telefon from klienci where nazwa = 'Matusiak Edward'));
+(select '93', 'Matusiak Iza', ulica, miejscowosc, kod, telefon from klienci where nazwa = 'Matusiak Edward');
 
 --6.2
 --1
