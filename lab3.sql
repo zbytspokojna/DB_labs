@@ -156,10 +156,14 @@ select idczekoladki from zawartosc;
 --1
 select idmeczu, (gospodarze[1] + gospodarze[2] + gospodarze[3] + coalesce(gospodarze[4], 0) + coalesce(gospodarze[5], 0)) as Gosp, (goscie[1]+goscie[2]+goscie[3]+coalesce(goscie[4],0)+coalesce(goscie[5], 0)) as Gosc 
 from statystyki;
+--or
+select idmeczu, (select sum(s) from unnest(gospodarze) s) as gospodarze, (select sum(s) from unnest(goscie) s) as goscie from statystyki;
 --2
 select idmeczu, (gospodarze[1] + gospodarze[2] + gospodarze[3] + coalesce(gospodarze[4], 0) + coalesce(gospodarze[5], 0)) as Gosp, (goscie[1]+goscie[2]+goscie[3]+coalesce(goscie[4],0)+coalesce(goscie[5], 0)) as Gosc 
 from statystyki
 where gospodarze[5] + goscie[5] > 29;
+--or
+select idmeczu, (select sum(s) from unnest(gospodarze) s) as gospodarze, (select sum(s) from unnest(goscie) s) as goscie from statystyki where gospodarze[5]>15 or goscie[5]>15;
 --3
 select idmeczu,
 (case when(gospodarze[1] > goscie[1])then 1 else 0 end+
