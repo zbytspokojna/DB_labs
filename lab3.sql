@@ -182,7 +182,7 @@ where (gospodarze[1] + gospodarze[2] + gospodarze[3] + coalesce(gospodarze[4], 0
 --5 really?!
 select idmeczu, gospodarze[1] as gosp1, sqrt(gospodarze[1]) as sqrtgosp1, (gospodarze[1] + gospodarze[2] + gospodarze[3] + coalesce(gospodarze[4], 0) + coalesce(gospodarze[5], 0)) as gosp, log((gospodarze[1] + gospodarze[2] + gospodarze[3] + coalesce(gospodarze[4], 0) + coalesce(gospodarze[5], 0)),2) as sqrtgosp
 from statystyki
-where sqrt(gospodarze[1]+goscie[1]) < log((gospodarze[1] + gospodarze[2] + gospodarze[3] + coalesce(gospodarze[4], 0) + coalesce(gospodarze[5], 0) + goscie[1]+goscie[2]+goscie[3]+coalesce(goscie[4],0)+coalesce(goscie[5], 0)),2);
+where sqrt(gospodarze[1]+goscie[1]) < log(2, (gospodarze[1] + gospodarze[2] + gospodarze[3] + coalesce(gospodarze[4], 0) + coalesce(gospodarze[5], 0) + goscie[1]+goscie[2]+goscie[3]+coalesce(goscie[4],0)+coalesce(goscie[5], 0)));
 
 --3.7  make into sql file
 \echo <!DOCTYPE html>
