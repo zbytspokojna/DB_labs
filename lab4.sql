@@ -21,6 +21,10 @@ order by 1;
 select distinct nazwa, ulica, miejscowosc, extract(year from datarealizacji) as "Rok" 
 from klienci natural join zamowienia 
 where extract(year from datarealizacji) > 2011;
+--or more generally
+select distinct nazwa, ulica, miejscowosc, extract(year from datarealizacji) as "Rok" 
+from klienci natural join zamowienia
+where datarealizacji >= current_date - interval '5 years';
 --2
 select k.nazwa, k.ulica, k.miejscowosc,p.nazwa 
 from klienci k natural join zamowienia z natural join artykuly a join pudelka p using (idpudelka) 
