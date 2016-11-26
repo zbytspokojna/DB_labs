@@ -44,10 +44,9 @@ from zamowienia z right join klienci k on k.idklienta = z.idklienta
 where z.idklienta is null or where idzamowienia is null
 order by 1;
 --6
-select idzamowienia, nazwa, ulica, miejscowosc, idpudelka, sztuk 
-from klienci natural join zamowienia natural join artykuly 
-where idpudelka in ('fudg','autu') and sztuk > 1 
-order by 1;
+select k.nazwa, k.ulica, k.miejscowosc, a.sztuk, p.nazwa
+from klienci k natural join zamowienia z natural join artykuly a join pudelka p using(idpudelka)
+where a.sztuk >= 2 and p.nazwa in ('Kremowa fantazja','Kolekcja jesienna');
 --7
 select distinct c.orzechy, k.nazwa, k.ulica, k. miejscowosc
 from klienci k natural join zamowienia z natural join artykuly a join pudelka p using(idpudelka) join zawartosc w using(idpudelka) join czekoladki c using(idczekoladki)
