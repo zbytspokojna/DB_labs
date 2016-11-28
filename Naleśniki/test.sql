@@ -1,4 +1,5 @@
---Klienci którzy zamówili naleśniki bazowe z bananem?select distinct k.nazwa, z.id_zamowienia, s.nazwa
+--Klienci którzy zamówili naleśniki bazowe z bananem?
+select distinct k.nazwa, z.id_zamowienia, s.nazwa
 from klienci k natural join zamowienia z natural join kompozycje o join bazowe_nalesniki b on id_bazowego_nalesnika = id_nalesnika natural join zawartosc_nalesnika n join skladniki s using(id_skladnika)
 where s.nazwa like 'banan';
 
