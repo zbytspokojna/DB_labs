@@ -89,7 +89,7 @@ select telefon
 from klienci 
 where telefon like '% % % %';
 --3
-boreanna=> select telefon 
+select telefon 
 from klienci 
 where telefon like '___ ___ ___';
 
