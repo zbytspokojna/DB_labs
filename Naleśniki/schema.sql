@@ -1,3 +1,4 @@
+--by Patryk Gałczyński
 DROP TABLE typ_skladnika;
 DROP TABLE zawartosc_nalesnika;
 DROP TABLE skladniki;
