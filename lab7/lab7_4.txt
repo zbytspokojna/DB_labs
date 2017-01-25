@@ -1,0 +1,11 @@
+MetodaPłatności : {metodaPłNr}
+Klient : {klientNr}
+Artykuł : {artykułNr}
+Pracownik : {pracownikNr}
+SposóbTransportu : {sposóbTrNr}
+
+Faktura : {fakturaNr, metodaPłNr, zamówienieNr}
+Zamówienie : {zamówienieNr, klientNr, pracownikNr}
+SzczegółyZamowienia : {____?, artykułNr, zamówienieNr}
+Transport : {transportNr, ____?, pracownikNr, sposóbTrNr}
+
