@@ -119,6 +119,48 @@ $$
 $$
 language plpgsql;
 
+--B.2 v2 testowane na tej bazie, która była na wiki
+
+create or replace function czas_ostrzezenia(idpunktu integer, flaga boolean)
+returns interval as
+$$
+declare
+  czas timestamp;
+begin
+  if flaga then
+    select czas_ostrzezenia into czas
+    from ostrzezenia
+    where id_punktu = idpunktu
+    order by czas_ostrzezenia desc limit 1;
+
+    if czas = null then return interval '0' ; end if;
+    if (select przekreczony_stan_alarm
+      from ostrzezenia
+      where id_punktu = idpunktu
+      order by czas_ostrzezenia desc limit 1) is null
+      then return interval '0' ; end if;
+
+    return now() - czas;
+
+  else
+    select czas_ostrzezenia into czas
+    from ostrzezenia
+    where id_punktu = idpunktu
+    order by czas_ostrzezenia desc limit 1;
+
+    if czas = null then return interval '0' ; end if;
+    if (select przekreczony_stan_alarm
+      from ostrzezenia
+      where id_punktu = idpunktu
+      order by czas_ostrzezenia desc limit 1) is not null
+      then return interval '0' ; end if;
+
+    return now() - czas;
+  end if;
+end;
+$$
+language plpgsql;
+
                    
 --B.3 modified to Wisła not San
 create or replace function dodaj_ostrzezenie(rzeka text) returns void as
