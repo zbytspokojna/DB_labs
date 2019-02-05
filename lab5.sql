@@ -71,7 +71,7 @@ group by idzamowienia) zamowienia;
 select klienci.nazwa, klienci.liczba, klienci.cena
 from (select k.nazwa as nazwa, count(idzamowienia) as liczba, sum(a.sztuk*p.cena) as cena
 from klienci k natural join zamowienia z natural join artykuly a join pudelka p using (idpudelka)
-group by k.nazwa) klienci;
+group by k.idklienta) klienci;
 
 --5.4
 --1
