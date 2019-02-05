@@ -32,7 +32,7 @@ update czekoladki set koszt = koszt - (0.1*koszt) where idczekoladki in ('W98','
 update czekoladki set koszt = (select koszt from czekoladki where idczekoladki = 'W98') where nazwa = 'Nieznana Nieznajoma';
 --4 to samo
 --5
-update czekoladki set koszt = koszt + 0.15 where idczekoladki like '%9%';
+update czekoladki set koszt = koszt + 0.15  where idczekoladki similar to  '%9[1-9]';
 
 --6.5
 --1
